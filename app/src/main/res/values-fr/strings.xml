@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Assistant De Navigation</string>
+    <string name="startRoom">Salle de Départ:</string>
+    <string name="endRoom">Salle d\'Arrivée:</string>
+    <string name="go">Go!</string>
+    <string name="inputExample">ex: 120</string>
+    <string name="inputExample2">ex: 56</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="wrongStartRoom">Entrez une salle de départ existante</string>
+    <string name="wrongEndRoom">Entrez une salle d\'arrivée existante</string>
+    <string name="enterStartRoom">Entrez une salle de départ</string>
+    <string name="enterEndRoom">Entrez une salle d\'arrivée</string>
+    <string name="sameRoom">Vous êtes déjà dans la salle selectionnée</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Navigation Assistant</string>
+    <string name="startRoom">Start Room:</string>
+    <string name="endRoom">End Room:</string>
+    <string name="go">Go!</string>
+    <string name="inputExample">ex: 120</string>
+    <string name="inputExample2">ex: 56</string>
+    <string name="action_settings">Settings</string>
+    <string name="wrongStartRoom">Enter an existant start room</string>
+    <string name="wrongEndRoom">Enter an existant end room</string>
+    <string name="enterStartRoom">Enter a start room</string>
+    <string name="enterEndRoom">Enter an end room</string>
+    <string name="sameRoom">You\'re already in the selected room</string>
+</resources>
