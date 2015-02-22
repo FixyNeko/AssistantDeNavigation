@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 public class Main extends Activity implements View.OnClickListener{
     EditText startRoom, endRoom;
+    int[] pathNums;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,20 +48,23 @@ public class Main extends Activity implements View.OnClickListener{
                 }
                 catch (Exception a) {
                     try {
+                        Integer.parseInt(Sector.getSector(end));
                         Toast.makeText(Main.this, R.string.wrongEndRoom, Toast.LENGTH_LONG).show();
                     }
                     catch (Exception b) {
                         Path.calcPath(Sector.getSector(start),Sector.getSector(end));
+                        pathNums = Path.getPathNums();
+                        MapView.draw(pathNums);
                     }
                 }
                 setContentView(R.layout.map_screen);
-                Button floor0 = (Button) findViewById(R.id.startCalcButton);
+                Button floor0 = (Button) findViewById(R.id.floor0);
                 floor0.setOnClickListener(this);
-                Button floor1 = (Button) findViewById(R.id.startCalcButton);
+                Button floor1 = (Button) findViewById(R.id.floor1);
                 floor1.setOnClickListener(this);
-                Button floor2 = (Button) findViewById(R.id.startCalcButton);
+                Button floor2 = (Button) findViewById(R.id.floor2);
                 floor2.setOnClickListener(this);
-                Button floor3 = (Button) findViewById(R.id.startCalcButton);
+                Button floor3 = (Button) findViewById(R.id.floor3);
                 floor3.setOnClickListener(this);
                 break;
             case R.id.floor0:
