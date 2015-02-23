@@ -22,7 +22,6 @@ public class Path {
         int y = 0, plusPetit;
         x = pointDepart;
         do {
-            System.out.println("Testé: " + x);
             pointsDejaFaits.add(x); //on ajoute le point � la liste des points deja test�s
             AddToMap.calcLiaisons(x); //on lance le calcul des points reli�s
             String[] pointsConnectes = AddToMap.getConnectedPointsTo(); //on recup�re le nom des points reli�s
@@ -79,7 +78,6 @@ public class Path {
                 if (liaisonSelectionne.get(i).getPoint1().equals(x)) {
                     x = liaisonSelectionne.get(i).getPoint2(); //on note le point pr�c�dent au point recherch�
                     cheminInverseNum.add(numLiaisonSelectionne.get(i));
-                    System.out.print(" " + cheminInverseNum.get(cheminInverseNum.size()-1));
                 }
             }
         }

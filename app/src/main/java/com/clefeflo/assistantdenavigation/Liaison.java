@@ -1,6 +1,7 @@
 package com.clefeflo.assistantdenavigation;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.widget.Switch;
@@ -11,7 +12,7 @@ import android.widget.Switch;
 public class Liaison {
     private String point1, point2;
     private int poids;
-    private float X1, Y1, X2, Y2, startAngle, sweepAngle;
+    private float X1, Y1, X2, Y2, startAngle, sweepAngle, radius;
     private RectF rectF;
     private byte type;
 
@@ -42,6 +43,16 @@ public class Liaison {
         this.type = 2;
     }
 
+    public Liaison(String p1, String p2, int poids, float x1, float y1, float radius, Paint p) {
+        this.point1 = p1;
+        this.point2 = p2;
+        this.poids = poids;
+        this.X1 = x1;
+        this.Y1 = y1;
+        this.radius = radius;
+        this.type = 3;
+    }
+
     public String getPoint1() {
         return this.point1;
     }
@@ -54,14 +65,26 @@ public class Liaison {
         return this.poids;
     }
 
-    public Canvas setVisible(Paint p) {
-        Canvas canvas = new Canvas();
+    public Canvas addCanvas(Canvas canvas) {
+        Paint p = new Paint();
         switch(this.type){
             case 1:
+                p.setStyle(Paint.Style.STROKE);
+                p.setStrokeWidth(7);
+                p.setColor(Color.YELLOW);
                 canvas.drawLine(this.X1, this.Y1, this.X2, this.Y2, p);
                 break;
             case 2:
+                p.setStyle(Paint.Style.STROKE);
+                p.setStrokeWidth(7);
+                p.setColor(Color.YELLOW);
                 canvas.drawArc(this.rectF, this.startAngle, this.sweepAngle, false, p);
+                break;
+            case 3:
+                p.setStyle(Paint.Style.FILL_AND_STROKE);
+                p.setStrokeWidth(7);
+                p.setColor(Color.RED);
+                canvas.drawCircle(this.X1, this.Y1, this.radius, p);
                 break;
         }
         return canvas;
