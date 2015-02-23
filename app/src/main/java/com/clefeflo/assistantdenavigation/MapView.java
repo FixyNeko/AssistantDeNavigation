@@ -19,11 +19,11 @@ import android.widget.ImageView;
  */
 public class MapView extends View {
     Paint paint = new Paint();
-    Canvas floor0 = new Canvas();
-    Canvas floor1 = new Canvas();
-    Canvas floor2 = new Canvas();
-    Canvas floor3 = new Canvas();
-    Canvas selectedCanvas = new Canvas();
+    Canvas floor0;
+    Canvas floor1;
+    Canvas floor2;
+    Canvas floor3;
+    Canvas selectedCanvas;
     Bitmap bmp;
     Thread create;
     float ratio;
@@ -31,21 +31,20 @@ public class MapView extends View {
     public MapView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
+        selectedCanvas.setBitmap(bmp);
+        selectedCanvas = new Canvas();
+        
         create = new Thread() {
             @Override
             public void run() {
                 paint.setColor(Color.YELLOW);
                 paint.setStyle(Paint.Style.STROKE);
                 paint.setStrokeWidth(10);
-                bmp = ((BitmapDrawable) getResources().getDrawable(R.drawable.ifloor0)).getBitmap();
-                floor0.drawBitmap(bmp, false), 0, 0, null);
-                bmp = ((BitmapDrawable) getResources().getDrawable(R.drawable.ifloor1)).getBitmap();
-                floor1.drawBitmap(bmp, false), 0, 0, null);
-                bmp = ((BitmapDrawable) getResources().getDrawable(R.drawable.ifloor2)).getBitmap();
-                floor2.drawBitmap(bmp, false), 0, 0, null);
-                bmp = ((BitmapDrawable) getResources().getDrawable(R.drawable.ifloor3)).getBitmap();
-                floor3.drawBitmap(bmp, false), 0, 0, null);
-                ratio = (float)bmp.getHeight() / (float)bmp.getWidth();
+                floor0 = new Canvas(((BitmapDrawable) getResources().getDrawable(R.drawable.ifloor0)).getBitmap());
+                floor1 = new Canvas(((BitmapDrawable) getResources().getDrawable(R.drawable.ifloor1)).getBitmap());
+                floor2 = new Canvas(((BitmapDrawable) getResources().getDrawable(R.drawable.ifloor2)).getBitmap());
+                floor3 = new Canvas(((BitmapDrawable) getResources().getDrawable(R.drawable.ifloor3)).getBitmap());
+                ratio = (float)floor0.getHeight() / (float)floor0.getWidth();
                 System.out.println("Canvas setted. Ratio: " + ratio);
             }
         };
@@ -80,6 +79,23 @@ public class MapView extends View {
                     floor3 = AddToMap.liaison[i].addCanvas(floor3);
                     break;
             }
+        }
+    }
+    
+    public static void selectFloor(int i) {
+        switch(i){
+            case 0:
+                selectedCanvas = floor0;
+                break;
+            case 1:
+                selectedCanvas = floor1;
+                break;
+            case 2:
+                selectedCanvas = floor2;
+                break;
+            case 3:
+                selectedCanvas = floor3;
+                break;
         }
     }
 }
