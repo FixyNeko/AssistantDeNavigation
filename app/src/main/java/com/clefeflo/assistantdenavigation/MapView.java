@@ -18,9 +18,8 @@ import android.widget.ImageView;
  * Created by Félix on 04/02/2015.
  */
 public class MapView extends View {
-    private static Canvas floor0;
     Paint paint = new Paint();
-//    Canvas floor0 = new Canvas();
+    Canvas floor0 = new Canvas();
     Canvas floor1 = new Canvas();
     Canvas floor2 = new Canvas();
     Canvas floor3 = new Canvas();
@@ -38,8 +37,15 @@ public class MapView extends View {
                 paint.setStyle(Paint.Style.STROKE);
                 paint.setStrokeWidth(10);
                 bmp = ((BitmapDrawable) getResources().getDrawable(R.drawable.ifloor0)).getBitmap();
+                floor0.drawBitmap(bmp, false), 0, 0, null);
+                bmp = ((BitmapDrawable) getResources().getDrawable(R.drawable.ifloor1)).getBitmap();
+                floor1.drawBitmap(bmp, false), 0, 0, null);
+                bmp = ((BitmapDrawable) getResources().getDrawable(R.drawable.ifloor2)).getBitmap();
+                floor2.drawBitmap(bmp, false), 0, 0, null);
+                bmp = ((BitmapDrawable) getResources().getDrawable(R.drawable.ifloor3)).getBitmap();
+                floor3.drawBitmap(bmp, false), 0, 0, null);
                 ratio = (float)bmp.getHeight() / (float)bmp.getWidth();
-                System.out.println("bmp défini. Ratio: " + ratio);
+                System.out.println("Canvas setted. Ratio: " + ratio);
             }
         };
         create.start();
@@ -61,8 +67,16 @@ public class MapView extends View {
             char floor = AddToMap.liaison[pathNums[i]].getPoint1().charAt(AddToMap.liaison[pathNums[i]].getPoint1().length()-1);
             switch(floor) {
                 case '0':
-                    Canvas tmpCanvas = Liaison.addCanvas(floor0);
-                    floor0 = tmpCanvas;
+                    floor0 = AddToMap.liaison[i].addCanvas(floor0);
+                    break;
+                case '1':
+                    floor1 = AddToMap.liaison[i].addCanvas(floor1);
+                    break;
+                case '2':
+                    floor2 = AddToMap.liaison[i].addCanvas(floor2);
+                    break;
+                case '3':
+                    floor3 = AddToMap.liaison[i].addCanvas(floor3);
                     break;
             }
         }
