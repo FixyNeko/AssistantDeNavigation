@@ -68,12 +68,16 @@ public class Main extends Activity implements View.OnClickListener{
                 floor3.setOnClickListener(this);
                 break;
             case R.id.floor0:
+                MapView.selectFloor(0);
                 break;
             case R.id.floor1:
+                MapView.selectFloor(1);
                 break;
             case R.id.floor2:
+                MapView.selectFloor(2);
                 break;
             case R.id.floor3:
+                MapView.selectFloor(3);
                 break;
         }
     }
