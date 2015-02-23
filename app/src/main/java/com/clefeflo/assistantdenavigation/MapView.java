@@ -23,6 +23,7 @@ public class MapView extends View {
     Canvas floor1 = new Canvas();
     Canvas floor2 = new Canvas();
     Canvas floor3 = new Canvas();
+    Canvas selectedCanvas = new Canvas();
     Bitmap bmp;
     Thread create;
     float ratio;
