@@ -1,12 +1,11 @@
 package com.clefeflo.assistantdenavigation;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Félix on 04/02/2015.
  */
-public class Path {
+public class MyPath {
 
     private static String[] chemin;
     private static int[] cheminNum;
@@ -18,6 +17,7 @@ public class Path {
 
 
     public static void calcPath(String pointDepart, String pointArrivee) {
+        liaison = new ArrayList<>();liaisonSelectionne = new ArrayList<>();pointsDejaFaits = new ArrayList<>();liaisonNum = new ArrayList();numLiaisonSelectionne = new ArrayList<>();
         String x, z = null;
         int y = 0, plusPetit;
         x = pointDepart;
@@ -28,7 +28,7 @@ public class Path {
             int[] poidsLiaisons = AddToMap.getPoidsLiaisonTo(); //et leur distance du point x
             int[] pointNum = AddToMap.getPointNum();
 
-            for(int i=0;i<pointsConnectes.length;i++) {
+            for (int i = 0; i < pointsConnectes.length; i++) {
             }
 
             for (int i = 0; i < poidsLiaisons.length; i++) { //on ajoute le poids de x, pour avoir leur poids total par rapport au tout premier point

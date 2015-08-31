@@ -12,4 +12,6 @@
     <string name="enterStartRoom">Entrez une salle de départ</string>
     <string name="enterEndRoom">Entrez une salle d\'arrivée</string>
     <string name="sameRoom">Vous êtes déjà dans la salle selectionnée</string>
+    <string name="Floor_text">Etage</string>
+    <string name="Return">Retour</string>
 </resources>

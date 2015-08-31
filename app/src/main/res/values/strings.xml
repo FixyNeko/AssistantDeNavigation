@@ -12,4 +12,6 @@
     <string name="enterStartRoom">Enter a start room</string>
     <string name="enterEndRoom">Enter an end room</string>
     <string name="sameRoom">You\'re already in the selected room</string>
+    <string name="Floor_text">Floor</string>
+    <string name="Return">Return</string>
 </resources>
